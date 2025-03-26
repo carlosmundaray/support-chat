@@ -1,7 +1,5 @@
 # Chat de Soporte en Tiempo Real con WebSockets
 
-![Demo del Chat](http://localhost:3000) <!-- Reemplaza con una imagen real de tu proyecto -->
-![Demo del Chat Soporte](http://localhost:3000/agent.html) <!-- Reemplaza con una imagen real de tu proyecto -->
 Un sistema de chat de soporte en tiempo real implementado con Node.js y WebSockets, con interfaz responsive que funciona en todos los dispositivos.
 
 ## Características principales
