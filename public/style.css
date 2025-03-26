@@ -1,0 +1,310 @@
+/* Variables de color */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  --success-color: #4caf50;
+  --info-color: #2196f3;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --text-color: #333;
+  --text-light: #777;
+  --border-color: #ddd;
+  --bg-color: #fff;
+  --agent-bg: #f0f7ff;
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f5f5;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.connection-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.connection-status.connecting {
+  background-color: var(--warning-color);
+}
+
+.connection-status.connected {
+  background-color: var(--success-color);
+}
+
+.connection-status.disconnected {
+  background-color: var(--danger-color);
+}
+
+.connection-status.error {
+  background-color: var(--danger-color);
+}
+
+/* Layout principal */
+.messages-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+}
+
+.input-container {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.input-container input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.button-group {
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.send-button, .broadcast-button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.send-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.send-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.broadcast-button {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.broadcast-button:hover {
+  background-color: #0b7dda;
+}
+
+/* Estilos de mensajes */
+.message {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.sender {
+  font-weight: bold;
+}
+
+.time {
+  color: var(--text-light);
+  font-size: 0.75rem;
+}
+
+.message-content {
+  word-wrap: break-word;
+}
+
+.message.received {
+  background-color: #f1f1f1;
+  margin-right: auto;
+}
+
+.message.sent {
+  background-color: #e3f2fd;
+  margin-left: auto;
+}
+
+.message.sent-broadcast {
+  background-color: #bbdefb;
+  border-left: 4px solid var(--info-color);
+  margin-left: auto;
+}
+
+.message.system {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin: 1rem auto;
+  max-width: 100%;
+}
+
+/* Panel de agente */
+.agent-container {
+  background-color: var(--agent-bg);
+}
+
+.agent-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.user-list-container {
+  width: 250px;
+  border-right: 1px solid var(--border-color);
+  background-color: white;
+  overflow-y: auto;
+}
+
+.user-list-container h2 {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--light-color);
+}
+
+.user-list {
+  padding: 0.5rem;
+}
+
+.user-item {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--light-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-item:hover {
+  background-color: #e9ecef;
+}
+
+.user-item.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.empty-list {
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.current-chat-info {
+  padding: 1rem;
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-count {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .agent-layout {
+      flex-direction: column;
+  }
+  
+  .user-list-container {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+      max-height: 200px;
+  }
+  
+  .input-container {
+      flex-direction: column;
+  }
+  
+  .button-group {
+      margin-left: 0;
+      margin-top: 0.5rem;
+  }
+  
+  .send-button, .broadcast-button {
+      margin-left: 0;
+      width: 100%;
+  }
+  
+  .message {
+      max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+      font-size: 1.2rem;
+  }
+  
+  .connection-status {
+      top: 0.5rem;
+      right: 0.5rem;
+  }
+  
+  .input-container {
+      padding: 0.5rem;
+  }
+  
+  .send-button, .broadcast-button {
+      padding: 0.5rem;
+  }
+}
